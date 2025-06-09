@@ -1,0 +1,144 @@
+/* src/App.css */
+
+/* Base reset and font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F8F9FA;
+  color: #34495E;
+  min-height: 100vh;
+}
+
+/* Layout container */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* Headers */
+h1, h2, h3 {
+  color: #2C3E50;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Paragraph */
+p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Buttons */
+button {
+  background-color: #2C3E50;
+  color: #ECF0F1;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #2980B9;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Sub-lists */
+.sub-list {
+  margin-left: 20px;
+}
+
+.sub-list button {
+  font-size: 14px;
+  padding: 10px 16px;
+  background-color: #34495E;
+}
+
+.sub-list button:hover {
+  background-color: #2980B9;
+}
+
+/* Inputs */
+input, select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border: 1.5px solid #BDC3C7;
+  border-radius: 6px;
+  font-size: 16px;
+  outline-color: #2980B9;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, select:focus {
+  border-color: #2980B9;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  button {
+    font-size: 14px;
+  }
+  input, select {
+    font-size: 14px;
+  }
+}
+
+button.machine-btn {
+  width: 80%;
+  margin: 10px auto;
+  display: block;
+}
+
+.sub-list {
+  padding-left: 20px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border-left: 2px solid #ccc;
+}
+
+.sub-list li {
+  margin-bottom: 10px;
+}
+
+.sub-list button {
+  width: 70%;
+  margin-left: 10px;
+  background-color: #566573;
+  font-size: 14px;
+  padding: 10px 16px;
+}
+
+.sub-list button:hover {
+  background-color: #2980B9;
+}
