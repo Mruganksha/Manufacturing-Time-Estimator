@@ -9,7 +9,7 @@ function HomePage() {
     <div className="container">
       <h1>Manufacturing Time Estimator</h1>
       <p>Estimate how long your machining task will take</p>
-      <button onClick={() => navigate('/select-machine')}>
+      <button onClick={() => navigate('/MachineSelct')}>
         Start Estimating
       </button>
     </div>

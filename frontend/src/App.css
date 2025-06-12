@@ -142,3 +142,67 @@ button.machine-btn {
 .sub-list button:hover {
   background-color: #2980B9;
 }
+
+/* Container styles */
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Heading style */
+.heading {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 40px;
+}
+
+.machine-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  justify-items: center;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* On small screens: 1 column */
+@media (max-width: 640px) {
+  .machine-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card style */
+.machine-card {
+  width: 100%;
+  max-width: 280px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.machine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image inside card */
+.machine-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Machine name */
+.machine-name {
+  padding: 15px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #34495e;
+}
