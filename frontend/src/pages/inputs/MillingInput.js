@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../MillingTimeEstimator.css'; // Import the scoped CSS file
 
 const MillingTimeEstimator = () => {
   const [gcode, setGcode] = useState('');
@@ -9,7 +10,7 @@ const MillingTimeEstimator = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/milling-time', {
+      const res = await axios.post('https://your-backend.onrender.com/api/milling-time', {
         gcode,
         feed
       });
@@ -21,13 +22,13 @@ const MillingTimeEstimator = () => {
   };
 
   return (
-    <div className="p-6 max-w-2xl mx-auto mt-8 bg-white rounded-lg shadow-md border">
-      <h2 className="text-2xl font-bold mb-4 text-center text-green-700">Milling Machine Time Estimator</h2>
+    <div className="milling-container">
+      <h2 className="milling-title">Milling Machine Time Estimator</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="milling-form">
         <textarea
           rows={10}
-          className="w-full p-3 border rounded font-mono"
+          className="milling-textarea"
           placeholder="Paste your G-code here..."
           value={gcode}
           onChange={(e) => setGcode(e.target.value)}
@@ -35,22 +36,22 @@ const MillingTimeEstimator = () => {
         />
         <input
           type="number"
-          className="w-full p-2 border rounded"
+          className="milling-input"
           placeholder="Feed of table (mm/hr)"
           value={feed}
           onChange={(e) => setFeed(e.target.value)}
           required
         />
-        <button type="submit" className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">
+        <button type="submit" className="milling-button">
           Calculate
         </button>
       </form>
 
       {result && (
-        <div className="mt-6 bg-gray-100 p-4 rounded shadow-sm">
+        <div className="milling-result">
           <p><strong>Total Tool Travel Distance:</strong> {result.tool_travel} mm</p>
           <p><strong>Feed Rate:</strong> {result.feed_rate} mm/hr</p>
-          <p className="text-green-700 font-semibold"><strong>⏱️ Machining Time:</strong> {result.machining_time} hours</p>
+          <p className="milling-time"><strong>⏱️ Machining Time:</strong> {result.machining_time} hours</p>
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 /* src/App.css */
 
+
 /* Base reset and font */
 * {
   box-sizing: border-box;
@@ -17,6 +18,15 @@ body {
 /* Layout container */
 .container {
   max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+.container-machine{
+  max-width: 800px;
   margin: 40px auto;
   background: #fff;
   padding: 25px 30px;
@@ -205,4 +215,53 @@ button.machine-btn {
   font-size: 18px;
   font-weight: 600;
   color: #34495e;
+}
+
+
+/*edm input*/
+.edm-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.edm-title {
+  text-align: center;
+  font-size: 24px;
+  color: #1a73e8;
+  margin-bottom: 1.5rem;
+}
+
+.edm-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.edm-form button {
+  width: 100%;
+  background-color: #11244d;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edm-form button:hover {
+  background-color:#0c1c49;
+}
+
+.result-box {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 2rem;
 }

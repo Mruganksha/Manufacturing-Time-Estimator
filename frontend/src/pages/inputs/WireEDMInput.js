@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../../WireEDMInput.css'; // Import the scoped CSS file
 
 const WireEDMInput = () => {
   const [form, setForm] = useState({
@@ -21,7 +22,7 @@ const WireEDMInput = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/wire-edm-time', form);
+      const res = await axios.post('https://your-backend.onrender.com/api/wire-edm-time', form);
       setResult(res.data);
     } catch (err) {
       console.error(err);
@@ -30,9 +31,9 @@ const WireEDMInput = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto bg-white shadow-md rounded px-4 py-4">
-      <h2 className="text-xl font-semibold mb-4">Wire EDM Time Estimator</h2>
-      <form onSubmit={handleSubmit} className="space-y-3">
+    <div className="wire-edm-container">
+      <h2 className="wire-edm-title">Wire EDM Time Estimator</h2>
+      <form onSubmit={handleSubmit} className="wire-edm-form">
         {[
           ["num_items", "Number of Items"],
           ["path_length", "Path Length (mm)"],
@@ -43,35 +44,30 @@ const WireEDMInput = () => {
           ["setup_time", "Setup Time (hours)"]
         ].map(([name, label]) => (
           <div key={name}>
-            <label className="block text-sm">{label}</label>
+            <label className="wire-edm-label">{label}</label>
             <input
               type="number"
               name={name}
               value={form[name]}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 px-2 py-1 rounded"
+              className="wire-edm-input"
               step="any"
             />
           </div>
         ))}
-        <button
-          type="submit"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-        >
-          Calculate
-        </button>
+        <button type="submit" className="wire-edm-button">Calculate</button>
       </form>
 
       {result && (
-        <div className="mt-6 p-4 bg-gray-100 rounded">
-          <h3 className="font-bold text-lg mb-2">--- Machining Time Report ---</h3>
+        <div className="wire-edm-result">
+          <h3>--- Machining Time Report ---</h3>
           <p>Cutting Area per Piece: {result.cutting_area_per_piece} mm²</p>
           <p>Total Cutting Area: {result.total_cutting_area} mm²</p>
           <p>Cutting Time: {result.cutting_time} hours</p>
           <p>Hole Shifting Time: {result.shift_time} hours</p>
           <p>Setup Time: {result.setup_time} hours</p>
-          <p className="font-semibold">Total Machining Time: {result.total_time} hours</p>
+          <p><strong>Total Machining Time: {result.total_time} hours</strong></p>
         </div>
       )}
     </div>

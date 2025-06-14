@@ -17,7 +17,7 @@ const MachineSelect = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-machine">
       <h2 className="heading">Select a Machine</h2>
       <div className="machine-grid">
         {machines.map((machine) => (
