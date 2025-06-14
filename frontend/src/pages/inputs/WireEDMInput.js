@@ -9,7 +9,6 @@ const WireEDMInput = () => {
     num_passes: '',
     approach: '',
     num_holes: '',
-    shift_time_per_hole: '',
     setup_time: ''
   });
 
@@ -31,7 +30,7 @@ const WireEDMInput = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto bg-white shadow-md rounded">
+    <div className="p-6 max-w-xl mx-auto bg-white shadow-md rounded px-4 py-4">
       <h2 className="text-xl font-semibold mb-4">Wire EDM Time Estimator</h2>
       <form onSubmit={handleSubmit} className="space-y-3">
         {[
@@ -41,7 +40,6 @@ const WireEDMInput = () => {
           ["num_passes", "Number of Passes (1-3)"],
           ["approach", "Approach (mm)"],
           ["num_holes", "Number of Holes per Item"],
-          ["shift_time_per_hole", "Time to Shift One Hole (hours)"],
           ["setup_time", "Setup Time (hours)"]
         ].map(([name, label]) => (
           <div key={name}>
