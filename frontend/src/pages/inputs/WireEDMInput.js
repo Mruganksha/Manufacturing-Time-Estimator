@@ -22,7 +22,7 @@ const WireEDMInput = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://your-backend.onrender.com/api/wire-edm-time', form);
+      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/wire-edm-time`, form);
       setResult(res.data);
     } catch (err) {
       console.error(err);

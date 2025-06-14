@@ -28,7 +28,7 @@ const GrindingInput = () => {
     e.preventDefault();
     setError("");
     try {
-      const response = await axios.post("https://your-backend.onrender.com/api/grinding-time", inputs);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/grinding-time`, inputs);
       setResult(response.data);
     } catch (err) {
       setError("Error calculating grinding time. Please check your input.");
