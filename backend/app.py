@@ -4,7 +4,7 @@ import math
 import re
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/api/*": {"origins": "https://manufacturing-time-estimator-1.onrender.com"}})
 
 def parse_line(line):
     coords = {}
