@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../WireEDMInput.css'; // Import the scoped CSS file
+import '../../WireEDMInput.css'; 
 
 const WireEDMInput = () => {
   const [form, setForm] = useState({

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../../MillingTimeEstimator.css'; // Import the scoped CSS file
+import '../../MillingTimeEstimator.css'; 
 
 const MillingTimeEstimator = () => {
   const [gcode, setGcode] = useState('');
@@ -51,7 +51,7 @@ const MillingTimeEstimator = () => {
         <div className="milling-result">
           <p><strong>Total Tool Travel Distance:</strong> {result.tool_travel} mm</p>
           <p><strong>Feed Rate:</strong> {result.feed_rate} mm/hr</p>
-          <p className="milling-time"><strong>⏱️ Machining Time:</strong> {result.machining_time} hours</p>
+          <p className="milling-time"><strong>Machining Time:</strong> {result.machining_time} hours</p>
         </div>
       )}
     </div>

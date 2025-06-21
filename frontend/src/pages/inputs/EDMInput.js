@@ -35,7 +35,7 @@ const EDMInput = () => {
       setResult(res.data);
     } catch (err) {
       console.error(err);
-      alert("❌ Error calculating EDM time. Please check your inputs and try again.");
+      alert("Error calculating EDM time. Please check your inputs and try again.");
     }
   };
 

@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import "../../GrindingInput.css"; // scoped styles
+import "../../GrindingInput.css"; 
 
 const GrindingInput = () => {
   const [inputs, setInputs] = useState({

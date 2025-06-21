@@ -4,7 +4,7 @@ import math
 import re
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://manufacturing-time-estimator-1.onrender.com"}})
+CORS(app, resources={"/api/*": {"origins": "https://manufacturing-time-estimator-1.onrender.com"}})
 
 def parse_line(line):
     coords = {}
@@ -101,18 +101,18 @@ def calculate_wire_edm_time():
     setup_time = float(data['setup_time'])
 
     # Base cutting area
-    cutting_area = (path_length + approach) * insert_height  # = 6084.411
+    cutting_area = (path_length + approach) * insert_height  
 
     # Apply factor based on passes
     if num_passes == 2:
-        cutting_area_per_piece = cutting_area * 1.25  # = 7605.51
+        cutting_area_per_piece = cutting_area * 1.25  
     elif num_passes == 3:
         cutting_area_per_piece = cutting_area * 1.5
     else:
         cutting_area_per_piece = cutting_area
 
     total_cutting_area = cutting_area_per_piece * num_items
-    cutting_time = total_cutting_area / 900  # Adjusted to match spreadsheet
+    cutting_time = total_cutting_area / 900  
 
     hole_shifting_time = (num_items * num_holes * 7) / 3600  # In hours
     total_time = cutting_time + hole_shifting_time + setup_time
@@ -133,7 +133,6 @@ def calculate_wire_edm_time():
 @app.route('/api/edm-time', methods=['POST', 'OPTIONS'])
 def calculate_edm_time():
     if request.method == 'OPTIONS':
-        # ✅ CORS preflight response
         response = app.make_default_options_response()
         response.headers["Access-Control-Allow-Origin"] = "*"
         response.headers["Access-Control-Allow-Headers"] = "Content-Type"
@@ -149,7 +148,6 @@ def calculate_edm_time():
         mrr = float(data['mrr'])  # MRR in mm³/min
         setup_time = float(data['setup_time'])  # in minutes
 
-        # 🧮 Calculations
         volume_to_remove = length * width * height  # mm³
         machining_time = volume_to_remove / mrr     # in minutes
         total_time_minutes = machining_time + setup_time
